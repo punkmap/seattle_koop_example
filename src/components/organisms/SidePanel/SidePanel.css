@@ -1,0 +1,35 @@
+
+.sidePanel {
+    height: 20em;
+    overflow-y: auto;
+    position: absolute;
+    bottom: 0px;
+    left: 2em;
+    background-color: rgb(245,245,245,0.85);;
+    min-width: 280px;
+    z-index: 100;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+    opacity: 0.85;
+    visibility: visible; 
+}
+.pointerEventsInactive {
+    pointer-events : none
+}
+.pointerEventsActive {
+    pointer-events : auto
+}
+.example-component.hide {
+    opacity: 0;
+    visibility: hidden; 
+}
+.sideNavButton {
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    top: 20px;
+    right: 46px;
+    z-index: 100;
+}

@@ -1,0 +1,29 @@
+.infoPanel {
+    height: 30em;
+    width:30em;
+    position: absolute;
+    bottom: 0px;
+    right: 2em;
+    background-color:rgb(245,245,245);
+    border: 1px solid cadetblue;
+    border-radius: 5px;
+    min-width: 280px;
+    z-index: 100;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+    opacity: 1;
+    visibility: visible; 
+    overflow: hidden;
+}
+.header{
+    overflow: hidden;
+    height:3.2em;
+}
+.body{
+    height: 26.8em;
+    padding-top: 0;
+    overflow-y:auto;
+    overflow-x:hidden;
+}

@@ -1,0 +1,38 @@
+.mapSearch{
+    width: 80%;
+}
+#searchWidget{
+    width:80%;
+    height:20%;
+    pointer-events: auto;
+}
+#searchWidget .esri-search__input{
+    height: 64px;
+    font-size: 28px;
+}
+#searchWidget .esri-search__submit-button{
+    height: 64px;
+    width: 64px;
+}
+#searchWidget .esri-icon-search{
+    font-size: 32px;
+}
+#searchWidget .esri-icon-close{
+    font-size: 32px;
+}
+#searchWidget .esri-search__clear-button{
+    height: 64px;
+    width: 64px;
+}
+#searchWidget .esri-menu{
+    font-size: 23px
+}
+#searchWidget .esri-icon-locate-circled{
+    font-size: 23px;
+}
+#searchWidget ul{
+    text-align: left;
+}
+.esri-search__form input{
+    padding-left: 0.5em;
+}
