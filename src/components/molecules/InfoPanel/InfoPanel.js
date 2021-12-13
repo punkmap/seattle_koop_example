@@ -9,9 +9,6 @@ import Fade from '@material-ui/core/Fade'
 import IconButton from '@material-ui/core/IconButton'
 import EditIcon from '@material-ui/icons/Edit';
 import DoneIcon from '@material-ui/icons/Done';
-import green from '@material-ui/core/colors/green';
-import blue from '@material-ui/core/colors/blue';
-import purple from '@material-ui/core/colors/purple';
 import TextField from '@material-ui/core/TextField';
 
 import './InfoPanel.css'
@@ -41,7 +38,6 @@ class InfoPanel extends Component {
         , nameEditing: false
         , chatterFeedInterval: null
     }
-    console.log('THIS_STATE: ', this.state);
   }
   componentDidUpdate() {
     
@@ -94,7 +90,6 @@ class InfoPanel extends Component {
     let info;
     if (field === 'name'){
       this.setState({nameEditing:false})
-      console.log('THIS_PROPS_NAMEEDITING: ', this.props.nameEditing)
       info = {
         Id:this.props.infoData.id, 
         Name: this.state.nameFieldValue
@@ -115,11 +110,9 @@ class InfoPanel extends Component {
         }
       })
       .then(function(response){
-        console.log('THIS_PROPS: ', self.props);
         self.props.refreshAssetsLayer();
       })
       .catch(function (error) {
-        console.log("saveField error: " + error);
       });
   }
   render() {
