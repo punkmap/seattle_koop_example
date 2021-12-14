@@ -20,6 +20,13 @@ class ReactMap extends React.PureComponent {
   }
   loadMap = ({loadedModules: [Map, MapView, GraphicsLayer, watchUtils, webMercadorUtils], containerNode}) => {
     const self = this;
+    
+    const selectedAssetGL = new GraphicsLayer({
+      visible:true
+      , id: 'selectedAssetGL'
+    })
+    selectedAssetGL.visible = true;
+    self.setState({selectedAssetGL:selectedAssetGL})
 
     const map = new Map({basemap: 'satellite', id:"daMap"})
     const mapView = new MapView({
@@ -30,11 +37,30 @@ class ReactMap extends React.PureComponent {
     })
 
     mapView.on('click', (e) => {
-      console.log(e)
+      console.log('EVENT: ', e)
+      console.log('CLICK');
       mapView.hitTest(e.screenPoint)
         .then(function(response){
+          
           // Retrieve the first symbol
           var graphic = response.results[0].graphic;
+          
+          //add symbol for selected asset
+          graphic.symbol = {
+              type: "simple-marker",  // autocasts as new SimpleMarkerSymbol()
+              size: 12,
+              color: "#33F0FF",
+              outline: {  // autocasts as new SimpleLineSymbol()
+                width: 0.5,
+                color: "white"
+              }
+          }
+
+          //remove all lingering asset selections
+          self.state.selectedAssetGL.removeAll()
+          //add graphic to selection layer
+          self.state.selectedAssetGL.add(graphic)
+          
           if (graphic) {
             // set infoData state to graphic attributes
             self.setState({infoData:{id: graphic.attributes.id, name: graphic.attributes.name, desc: graphic.attributes.desc}})
@@ -85,7 +111,7 @@ class ReactMap extends React.PureComponent {
           }
         }
       }
-      mapView.map.add(self.assetsLayer);
+      mapView.map.addMany([self.assetsLayer, self.state.selectedAssetGL]);
     })
   }
   refreshAssetsLayer = () => {
